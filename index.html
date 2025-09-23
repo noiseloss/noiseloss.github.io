@@ -6,10 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
-      margin: 0;
       font-family: "Helvetica Neue", Arial, sans-serif;
-      background: #fff;
-      color: #000;
+      margin: 0;
+      line-height: 1.6;
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                  url("assets/img/ink-bg.png");
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      color: #111;
       text-align: center;
     }
     header {
@@ -19,20 +24,30 @@
       font-size: 2.5em;
       letter-spacing: 2px;
       margin-bottom: 10px;
+      font-family: "STSong", "KaiTi", serif;
     }
     h2 {
       font-weight: 300;
       font-size: 1.2em;
       color: #444;
     }
-    .ink-line {
-      width: 80px;
-      height: 3px;
-      background: black;
-      margin: 20px auto;
-    }
     section {
-      margin: 60px 20px;
+      margin: 60px auto;
+      max-width: 900px;
+      padding: 0 20px;
+    }
+    img {
+      max-width: 100%;
+      margin: 20px 0;
+    }
+    audio {
+      margin: 10px auto 30px;
+      display: block;
+    }
+    .caption {
+      font-size: 0.9em;
+      color: #333;
+      margin-top: -10px;
     }
     .btn {
       display: inline-block;
@@ -48,15 +63,6 @@
       background: black;
       color: white;
     }
-    img {
-      max-width: 90%;
-      margin: 20px 0;
-      border: 1px solid #000;
-    }
-    audio {
-      margin: 15px auto;
-      display: block;
-    }
     footer {
       font-size: 0.8em;
       color: #555;
@@ -69,14 +75,35 @@
   <header>
     <h1>WHEN NOISE LOWERS THE LOSS</h1>
     <h2>Rethinking Likelihood-based Evaluation in Music LLMs</h2>
-    <div class="ink-line"></div>
     <a href="paper/paper.pdf" class="btn" target="_blank">Read the Paper</a>
   </header>
 
   <section>
+    <h2>About this Work</h2>
+    <p>
+      We discovered that when noise is injected into music, the loss of Music LLMs sometimes decreases, 
+      meaning the models treat noisy audio as “easier” than real music. This shows that absolute loss is unreliable. 
+      Instead, the <b>shape of the loss curve</b>—its peaks and phases—provides more meaningful signals for evaluation.
+    </p>
+  </section>
+
+  <section>
     <h2>Figures from the Paper</h2>
-    <img src="assets/img/figure1.png" alt="Figure 1 placeholder">
-    <img src="assets/img/figure2.png" alt="Figure 2 placeholder">
+
+    <img src="assets/img/figure1.png" alt="Context Amnesia Effect">
+    <div class="caption">Figure 1. Context Amnesia Effect revealed by the noise injection experiment.</div>
+
+    <img src="assets/img/figure2.png" alt="Loss under Noise Injection">
+    <div class="caption">Figure 2. Comparison of model performance under white noise across datasets and models.</div>
+
+    <img src="assets/img/figure3.png" alt="Loss Curve Dynamics">
+    <div class="caption">Figure 3. Loss curve dynamics showing Peak, Assimilation, and Recovery regions.</div>
+
+    <img src="assets/img/figure4.png" alt="Three-Stage Behavior">
+    <div class="caption">Figure 4. Automated detection of three-stage behavior across datasets.</div>
+
+    <img src="assets/img/figure5.png" alt="Shuffle Perturbation">
+    <div class="caption">Figure 5. Shuffle order perturbation showing similar insensitivity to long-range disruptions.</div>
   </section>
 
   <section>
@@ -84,7 +111,6 @@
     <p>Original</p>
     <audio controls>
       <source src="assets/audio/original.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
     </audio>
     <p>Noise Injected</p>
     <audio controls>
