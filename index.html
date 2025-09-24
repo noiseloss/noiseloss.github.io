@@ -88,22 +88,46 @@
   </section>
 
   <section>
-    <h2>Figures from the Paper</h2>
+  <h2>Figures & Explanations</h2>
 
+  <div class="figure-block">
     <img src="assets/img/figure1.png" alt="Context Amnesia Effect">
-    <div class="caption">Figure 1. Context Amnesia Effect revealed by the noise injection experiment.</div>
+    <p><b>Figure 1. Context Amnesia Effect.</b> 
+    When noise is first injected, the model’s loss spikes, noticing the inconsistency. 
+    But soon the loss drops and stays low, as if the model “forgets” the original music 
+    and adapts to noise as the new context.</p>
+  </div>
 
+  <div class="figure-block">
     <img src="assets/img/figure2.png" alt="Loss under Noise Injection">
-    <div class="caption">Figure 2. Comparison of model performance under white noise across datasets and models.</div>
+    <p><b>Figure 2. Loss under Noise Injection.</b> 
+    Across models and datasets, longer noise segments systematically decrease the loss. 
+    This shows that absolute loss is unreliable as a music quality indicator.</p>
+  </div>
 
+  <div class="figure-block">
     <img src="assets/img/figure3.png" alt="Loss Curve Dynamics">
-    <div class="caption">Figure 3. Loss curve dynamics showing Peak, Assimilation, and Recovery regions.</div>
+    <p><b>Figure 3. Loss Curve Dynamics.</b> 
+    The loss curve consistently shows three phases: 
+    <i>Peak</i> (spike at onset), 
+    <i>Assimilation</i> (loss drops and stabilizes), 
+    and <i>Recovery</i> (instability after noise ends).</p>
+  </div>
 
+  <div class="figure-block">
     <img src="assets/img/figure4.png" alt="Three-Stage Behavior">
-    <div class="caption">Figure 4. Automated detection of three-stage behavior across datasets.</div>
+    <p><b>Figure 4. Three-Stage Behavior Detected Automatically.</b> 
+    Automated detection confirms the three phases appear consistently across 
+    models and datasets, showing this is a systematic effect.</p>
+  </div>
 
+  <div class="figure-block">
     <img src="assets/img/figure5.png" alt="Shuffle Perturbation">
-    <div class="caption">Figure 5. Shuffle order perturbation showing similar insensitivity to long-range disruptions.</div>
+    <p><b>Figure 5. Shuffle Perturbation.</b> 
+    Even when music segments are shuffled instead of adding noise, the same 
+    short-term sensitivity and long-term insensitivity appear. This shows 
+    models are weak at capturing long-range structure.</p>
+  </div>
   </section>
 
   <section>
