@@ -53,9 +53,7 @@ h2 {
 }
 
 .small-figure {
-  max-width: 60%;
-  margin: 0 auto;
-  display: block;
+  max-width: 50%;
 }
 
 .audio-section p {
