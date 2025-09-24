@@ -93,9 +93,10 @@
   <div class="figure-block">
   <img src="assets/img/figure1.png" alt="Context Amnesia Effect" class="small-figure">
   <p><b>Figure 1. Context Amnesia Effect.</b> 
-  When noise is first injected, the model’s loss spikes, noticing the inconsistency. 
-  But soon the loss drops and stays low, as if the model “forgets” the original music 
-  and adapts to noise as the new context.</p>
+  When noise is injected, the model’s loss first spikes, showing it detects inconsistency. 
+  But almost immediately the loss drops and stays low, because some forms of noise are actually easier for the model to predict than real music. 
+  After the noise ends, the loss returns to the musical context but with higher variance. 
+  This counterintuitive behavior—brief resistance, then forgetting and adapting to noise—reveals a fundamental limitation of likelihood-based evaluation in music LLMs.</p>
   </div>
 
   <div class="figure-block">
