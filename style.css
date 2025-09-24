@@ -52,6 +52,12 @@ h2 {
   line-height: 1.5;
 }
 
+.small-figure {
+  max-width: 60%;
+  margin: 0 auto;
+  display: block;
+}
+
 .audio-section p {
   margin-top: 1.5em;
   font-weight: bold;
