@@ -11,3 +11,18 @@ body {
   background-size: cover;
   color: #111;
 }
+.figure-block {
+  margin: 40px auto;
+  max-width: 800px;
+  text-align: left;
+}
+.figure-block img {
+  display: block;
+  margin: 0 auto 10px;
+  max-width: 100%;
+}
+.figure-block p {
+  font-size: 0.95em;
+  color: #222;
+  line-height: 1.5;
+}
