@@ -35,7 +35,6 @@ h2 {
   color: #444;
 }
 
-/* 图文块 */
 .figure-block {
   margin: 50px 0;
   text-align: left;
@@ -53,7 +52,6 @@ h2 {
   line-height: 1.5;
 }
 
-/* 音频 demo */
 .audio-section p {
   margin-top: 1.5em;
   font-weight: bold;
@@ -66,7 +64,6 @@ audio {
   max-width: 600px;
 }
 
-/* 按钮 */
 .btn {
   display: inline-block;
   margin: 30px auto;
@@ -81,7 +78,6 @@ audio {
   color: #fff;
 }
 
-/* 页脚 */
 footer {
   margin-top: 60px;
   padding: 40px 20px;
@@ -90,7 +86,6 @@ footer {
   color: #555;
 }
 
-/* 响应式设计 */
 @media (max-width: 600px) {
   h1 {
     font-size: 2em;
