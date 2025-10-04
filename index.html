@@ -77,6 +77,17 @@
       font-weight: 500;
     }
     
+    /* Loss值颜色样式 */
+    .loss-original {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+    
+    .loss-noise {
+      color: #1976d2;
+      font-weight: bold;
+    }
+    
     .main-content {
       margin-left: 300px;
     }
@@ -223,11 +234,11 @@
     <div class="demo-container">
       <div class="demo-group">
         <h3>OOD Datasets - Beethoven_010</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 4.00)</span></p>
         <audio controls>
           <source src="assets/audio/ori_Beethoven_010.wav" type="audio/mpeg">
         </audio>
-        <p>Noise Injected</p>
+        <p>Noise Injected <span class="loss-noise">(Loss: 3.80)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_Beethoven_010.wav" type="audio/mpeg">
         </audio>
@@ -237,11 +248,11 @@
 
       <div class="demo-group">
         <h3>OOD Datasets - Chopin_073</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 3.46)</span></p>
         <audio controls>
           <source src="assets/audio/ori_Chopin_073.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise injected <span class="loss-noise">(Loss: 3.28)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_Chopin_073.wav" type="audio/mpeg">
         </audio>
@@ -251,11 +262,11 @@
 
       <div class="demo-group">
         <h3>OOD Datasets - Schubert_062</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 4.49)</span></p>
         <audio controls>
           <source src="assets/audio/ori_Schubert_062.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise injected <span class="loss-noise">(Loss: 4.27)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_Schubert_062.wav" type="audio/mpeg">
         </audio>
@@ -267,11 +278,11 @@
     <div class="demo-container">
       <div class="demo-group">
         <h3>Generated Datasets - Topk = 250 - Sample 004</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 6.15)</span></p>
         <audio controls>
           <source src="assets/audio/ori_sample_004.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise injected <span class="loss-noise">(Loss: 5.89)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_sample_004.wav" type="audio/mpeg">
         </audio>
@@ -281,11 +292,11 @@
 
       <div class="demo-group">
         <h3>Generated Datasets - Topk = 250 - Sample 005</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 6.18)</span></p>
         <audio controls>
           <source src="assets/audio/ori_sample_005.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise injected <span class="loss-noise">(Loss: 5.86)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_sample_005.wav" type="audio/mpeg"> 
         </audio>
@@ -295,11 +306,11 @@
 
       <div class="demo-group">
         <h3>Generated Datasets - Topk = 250 - Sample 006</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 6.55)</span></p>
         <audio controls>
           <source src="assets/audio/ori_sample_006.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise injected <span class="loss-noise">(Loss: 6.22)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_sample_006.wav" type="audio/mpeg"> 
         </audio>
@@ -311,11 +322,11 @@
     <div class="demo-container">
       <div class="demo-group">
         <h3>Training Datasets - Spreading Your Wings</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 6.25)</span></p>
         <audio controls>
           <source src="assets/audio/ori_spreading-your-wings.mp3" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise injected <span class="loss-noise">(Loss: 6.00)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_spreading-your-wings.wav" type="audio/mpeg">
         </audio>
@@ -325,11 +336,11 @@
 
       <div class="demo-group">
         <h3>Training Datasets - The Drive for Resolution</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 6.04)</span></p>
         <audio controls>
           <source src="assets/audio/ori_the-drive-for-resolution.mp3" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise injected <span class="loss-noise">(Loss: 5.92)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_the-drive-for-resolution.wav" type="audio/mpeg">
         </audio>
@@ -339,11 +350,11 @@
 
       <div class="demo-group">
         <h3>Training Datasets - Wistful Longing</h3>
-        <p>Original</p>
+        <p>Original <span class="loss-original">(Loss: 6.12)</span></p>
         <audio controls>
           <source src="assets/audio/ori_wistful-longing.mp3" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise injected <span class="loss-noise">(Loss: 5.93)</span></p>
         <audio controls>
           <source src="assets/audio/whiteNoise_wistful-longing.wav" type="audio/mpeg">
         </audio>
@@ -379,11 +390,11 @@
   <div class="demo-container">
     <div class="demo-group">
       <h3>Rhythm Deletion</h3>
-      <p>Original</p>
+      <p>Original <span class="loss-original">(Loss: 6.46)</span></p>
       <audio controls>
         <source src="assets/audio/ori_Beethoven_090.wav" type="audio/mpeg">
       </audio>
-      <p>Rhythm deletion for 40 percents of the original music.</p>
+      <p>Rhythm deletion for 40 percents of the original music. <span class="loss-noise">(Loss: 6.05)</span></p>
       <audio controls>
         <source src="assets/audio/Beethoven_090_rhythm1_4_step1_r40.wav" type="audio/mpeg">
       </audio>
@@ -393,13 +404,13 @@
 
     <div class="demo-group">
       <h3>Note Velocity Change</h3>
-      <p>Original</p>
+      <p>Original <span class="loss-original">(Loss: 6.46)</span></p>
       <audio controls>
         <source src="assets/audio/ori_Beethoven_090.wav" type="audio/mpeg">
       </audio>
-      <p>Note velocity changed for 80 percents of the original music.</p>
+      <p>Note velocity changed for 50 percents of the original music. <span class="loss-noise">(Loss: 6.01)</span></p>
       <audio controls>
-        <source src="assets/audio/Beethoven_090_velocity1_1_step1_nt80.wav" type="audio/mpeg">
+        <source src="assets/audio/Beethoven_090_velocity1_1_step1_nt50.wav" type="audio/mpeg">
       </audio>
       <img src="assets/img/supplement1_velocity.png" alt="Dynamic Change">
       <p><b>Figure 3-2. Note Velocity Change.</b></p>
@@ -407,11 +418,11 @@
 
     <div class="demo-group">
       <h3>Structure Change</h3>
-      <p>Original</p>
+      <p>Original <span class="loss-original">(Loss: 6.46)</span></p>
       <audio controls>
-        <source src="assets/audio/Beethoven_090_velocity1_1_step1_nt80.wav" type="audio/mpeg">
+        <source src="assets/audio/ori_Beethoven_090.wav" type="audio/mpeg">
       </audio>
-      <p>Structure changed for 80 percents of the original music.</p>
+      <p>Structure changed for 80 percents of the original music. <span class="loss-noise">(Loss: 6.09)</span></p>
       <audio controls>
         <source src="assets/audio/Beethoven_090_tempo1_1_step1_nt80.wav" type="audio/mpeg">
       </audio>
