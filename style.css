@@ -1,21 +1,14 @@
 body {
-  margin: 0;
-  padding: 0;
   font-family: "Helvetica Neue", Arial, sans-serif;
-  background: 
-    linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
-    url("assets/img/ink-bg.png");
+  margin: 0;
+  line-height: 1.6;
+  background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+              url("assets/img/ink-bg.png");
   background-repeat: no-repeat;
-  background-position: top center;
+  background-position: center top;
   background-size: cover;
   color: #111;
   text-align: center;
-}
-
-main, .content {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 header {
@@ -24,8 +17,8 @@ header {
 
 h1 {
   font-size: 2.5em;
-  margin-bottom: 0.3em;
   letter-spacing: 2px;
+  margin-bottom: 10px;
   font-family: "STSong", "KaiTi", serif;
 }
 
@@ -35,25 +28,53 @@ h2 {
   color: #444;
 }
 
-.figure-block {
-  margin: 50px 0;
-  text-align: left;
+section {
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 0 20px;
 }
 
-.figure-block img {
-  display: block;
-  margin: 0 auto 12px;
+img {
   max-width: 100%;
+  margin: 20px 0;
 }
 
-.figure-block p {
-  font-size: 0.95em;
-  color: #222;
-  line-height: 1.5;
+audio {
+  margin: 10px auto 30px;
+  display: block;
+}
+
+.caption {
+  font-size: 0.9em;
+  color: #333;
+  margin-top: -10px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  border: 1px solid black;
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: black;
+  color: white;
+}
+
+footer {
+  font-size: 0.8em;
+  color: #555;
+  padding: 40px 20px;
+  border-top: 1px solid #ccc;
 }
 
 .small-figure {
-  max-width: 50% !important;
+  max-width: 30% !important;
 }
 
 .audio-section p {

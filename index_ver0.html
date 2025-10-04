@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Noise Loss Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)),
+                  url("assets/img/ink-bg.png");
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+      color: #111;
+      text-align: center;
+    }
+    header {
+      padding: 80px 20px 40px;
+    }
+    h1 {
+      font-size: 2.5em;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      font-family: "STSong", "KaiTi", serif;
+    }
+    h2 {
+      font-weight: 300;
+      font-size: 1.2em;
+      color: #444;
+    }
+    section {
+      margin: 60px auto;
+      max-width: 1200px;
+      padding: 0 20px;
+    }
+    img {
+      max-width: 100%;
+      margin: 20px 0;
+    }
+    audio {
+      margin: 10px auto 30px;
+      display: block;
+      width: 100%;
+      max-width: 300px;
+    }
+    .caption {
+      font-size: 0.9em;
+      color: #333;
+      margin-top: -10px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      border: 1px solid black;
+      text-decoration: none;
+      color: black;
+      font-size: 1em;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: black;
+      color: white;
+    }
+    footer {
+      font-size: 0.8em;
+      color: #555;
+      padding: 40px 20px;
+      border-top: 1px solid #ccc;
+    }
+    .demo-container {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin: 40px auto;
+    }
+    .demo-group {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.8);
+      box-sizing: border-box;
+    }
+    .demo-group h3 {
+      margin-top: 0;
+      color: #333;
+      font-size: 1.1em;
+    }
+    .demo-group p {
+      font-size: 0.9em;
+      margin: 10px 0;
+    }
+    .demo-group img {
+      margin: 15px 0;
+    }
+    @media (max-width: 1000px) {
+      .demo-container {
+        flex-direction: column;
+      }
+      .demo-group {
+        min-width: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>WHEN NOISE LOWERS THE LOSS</h1>
+    <h2>Rethinking Likelihood-based Evaluation in Music LLMs</h2>
+    <a href="paper/paper.pdf" class="btn" target="_blank">Read the Paper</a>
+  </header>
+
+  <section>
+    <h2>About this Work</h2>
+    <p>
+      We discovered that when noise is injected into music, the loss of Music LLMs sometimes decreases, 
+      meaning the models treat noisy audio as "easier" than real music. This shows that absolute loss is unreliable. 
+      Instead, the <b>shape of the loss curve</b>—its peaks and phases—provides more meaningful signals for evaluation.
+    </p>
+  </section>
+
+  <!-- 三个并排的音频+图片组合 -->
+  <section>
+    <h2>Audio Demos & Loss Difference Analysis</h2>
+        <p>
+        When noise is injected, the model's loss first spikes, showing it detects inconsistency. 
+        But almost immediately the loss drops and stays low.</p>
+    <div class="demo-container">
+      <div class="demo-group">
+        <h3>OOD Datasets - Beethoven_010</h3>
+        <p>Original</p>
+        <audio controls>
+          <source src="assets/audio/ori_Beethoven_010.wav" type="audio/mpeg">
+        </audio>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
+        <audio controls>
+          <source src="assets/audio/whiteNoise_Beethoven_010.wav" type="audio/mpeg">
+        </audio>
+        <img src="assets/img/loss_diff_Beethoven_010.png" alt="Loss Difference">
+        <p><b>Loss Difference.</b> </p>
+      </div>
+
+      <div class="demo-group">
+        <h3>OOD Datasets - Chopin_073</h3>
+        <p>Original</p>
+        <audio controls>
+          <source src="assets/audio/ori_Chopin_073.wav" type="audio/mpeg">
+        </audio>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
+        <audio controls>
+          <source src="assets/audio/whiteNoise_Chopin_073.wav" type="audio/mpeg">
+        </audio>
+        <img src="assets/img/loss_diff_Chopin_073.png" alt="Loss Difference">
+        <p><b>Loss Difference.</b> </p>
+      </div>
+
+      <div class="demo-group">
+        <h3>OOD Datasets - Schubert_062</h3>
+        <p>Original</p>
+        <audio controls>
+          <source src="assets/audio/ori_Schubert_062.wav" type="audio/mpeg">
+        </audio>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
+        <audio controls>
+          <source src="assets/audio/whiteNoise_Schubert_062.wav" type="audio/mpeg">
+        </audio>
+        <img src="assets/img/loss_diff_Schubert_062.png" alt="Loss Difference">
+        <p><b>Loss Difference.</b> </p>
+      </div>
+    </div>
+
+    <!-- 第二行：一模一样的3个并排demo -->
+    <div class="demo-container">
+      <div class="demo-group">
+        <h3>Generated Datasets - Topk = 250 - Sample 004</h3>
+        <p>Original</p>
+        <audio controls>
+          <source src="assets/audio/ori_sample_004.wav" type="audio/mpeg">
+        </audio>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
+        <audio controls>
+          <source src="assets/audio/whiteNoise_sample_004.wav" type="audio/mpeg">
+        </audio>
+        <img src="assets/img/loss_diff_unconditional_topk250_samples_sample_004.png" alt="Loss Difference">
+        <p><b>Loss Difference.</b> </p>
+      </div>
+
+      <div class="demo-group">
+        <h3>Generated Datasets - Topk = 250 - Sample 005</h3>
+        <p>Original</p>
+        <audio controls>
+          <source src="assets/audio/ori_sample_005.wav" type="audio/mpeg">
+        </audio>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
+        <audio controls>
+          <source src="assets/audio/whiteNoise_sample_005.wav" type="audio/mpeg"> 
+        </audio>
+        <img src="assets/img/loss_diff_unconditional_topk250_samples_sample_005.png" alt="Loss Difference">
+        <p><b>Loss Difference.</b> </p>
+      </div>
+
+      <div class="demo-group">
+        <h3>Generated Datasets - Topk = 250 - Sample 006</h3>
+        <p>Original</p>
+        <audio controls>
+          <source src="assets/audio/ori_sample_006.wav" type="audio/mpeg">
+        </audio>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
+        <audio controls>
+          <source src="assets/audio/whiteNoise_sample_006.wav" type="audio/mpeg"> 
+        </audio>
+        <img src="assets/img/loss_diff_unconditional_topk250_samples_sample_006.png" alt="Loss Difference">
+        <p><b>Loss Difference.</b> </p>
+      </div>
+    </div>
+  </section>
+  
+  <section>
+  <h2>Figures & Explanations</h2>
+
+  <div class="figure-block">
+  <img src="assets/img/figure1.png" alt="Context Amnesia Effect" class="small-figure">
+  <p><b>Figure 1. Context Amnesia Effect.</b> 
+  When noise is injected, the model's loss first spikes, showing it detects inconsistency. 
+  But almost immediately the loss drops and stays low, because some forms of noise are actually easier for the model to predict than real music. 
+  After the noise ends, the loss returns to the musical context but with higher variance. 
+  This counterintuitive behavior—brief resistance, then forgetting and adapting to noise—reveals a fundamental limitation of likelihood-based evaluation in music LLMs.</p>
+  </div>
+
+  <div class="figure-block">
+    <img src="assets/img/figure2.png" alt="Loss under Noise Injection">
+    <p><b>Figure 2. Loss under Noise Injection.</b> 
+    Across models and datasets, longer noise segments systematically decrease the loss. 
+    This shows that absolute loss is unreliable as a music quality indicator.</p>
+  </div>
+
+  <div class="figure-block">
+    <img src="assets/img/figure3.png" alt="Loss Curve Dynamics">
+    <p><b>Figure 3. Loss Curve Dynamics.</b> 
+    The loss curve consistently shows three phases: 
+    <i>Peak</i> (spike at onset), 
+    <i>Assimilation</i> (loss drops and stabilizes), 
+    and <i>Recovery</i> (instability after noise ends).</p>
+  </div>
+
+  <div class="figure-block">
+  <img src="assets/img/figure4.png" alt="Three-Stage Behavior" class="small-figure">
+  <p><b>Figure 4. Three-Stage Behavior Detected Automatically.</b> 
+  Automated detection confirms the three phases appear consistently across 
+  models and datasets, showing this is a systematic effect.</p>
+  </div>
+
+  <div class="figure-block">
+    <img src="assets/img/figure5.png" alt="Shuffle Perturbation">
+    <p><b>Figure 5. Shuffle Perturbation.</b> 
+    Even when music segments are shuffled instead of adding noise, the same 
+    short-term sensitivity and long-term insensitivity appear. This shows 
+    models are weak at capturing long-range structure.</p>
+  </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Noise Loss Project by Xiaosha Li, Chun Liu, and Ziyu Wang. All rights reserved.</p>
+  </footer>
+</body>
+</html>
