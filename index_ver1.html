@@ -189,9 +189,11 @@
   <nav class="table-of-contents">
     <ul>
       <li><a href="#about">About this Work</a></li>
+      <li><a href="#noise-injection">Noise Injection Experiment</a></li>
       <li><a href="#audio-demos">Audio Demos & Loss Analysis</a></li>
+      <li><a href="#different-noise">Loss under Different Noise</a></li>
+      <li><a href="#loss-dynamics">Loss Curve Dynamics</a></li>
       <li><a href="#supplement">Supplement Experiments</a></li>
-      <li><a href="#additional">Additional Tests</a></li>
     </ul>
   </nav>
 
@@ -211,13 +213,32 @@
       </p>
     </section>
 
+    <section id="noise-injection">
+    <h2>Noise Injection Experiment</h2>
+    <p>
+    When noise is injected, the model's loss first spikes, showing it detects inconsistency. 
+    But almost immediately the loss drops and stays low, because some forms of noise are actually easier for the model to predict than real music. 
+    After the noise ends, the loss returns to the musical context but with higher variance. 
+    This counterintuitive behavior—brief resistance, then forgetting and adapting to noise—reveals a fundamental limitation of likelihood-based evaluation in music LLMs.</p>
+    <p>
+      Core result: after noise at 5s (~token 250), the loss quickly
+      drops and stays low because noisy audio is easier to predict
+      than real music.
+    </p>
+    <div class="figure-block">
+    <img src="assets/img/figure1.png" alt="Context Amnesia Effect" class="small-figure">
+    <p><b>Figure 1. Context Amnesia Effect.</b> </p>
+    </div>
+    </section>
+
     <section id="audio-demos">
       <h2>Audio Demos & Loss Difference Analysis</h2>
         <p>
         When noise is injected, the model's loss first spikes, showing it detects inconsistency. 
         But almost immediately the loss drops and stays low.</p>
         <p>
-          X-axis: tokens 200–750; noise injects at token 250 (at 5 Seconds) and lasts for 100 tokens (2 Seconds). Loss difference stays ~0 before 200, then changes. Definition:
+          X-axis: tokens 200–750; noise at token 250. Loss difference
+          stays ~0 before 250, then changes. Definition:
           Loss(music + perturb) − Loss(original).
         </p>
     <div class="demo-container">
@@ -227,12 +248,12 @@
         <audio controls>
           <source src="assets/audio/ori_Beethoven_010.wav" type="audio/mpeg">
         </audio>
-        <p>Noise Injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_Beethoven_010.wav" type="audio/mpeg">
         </audio>
         <img src="assets/img/loss_diff_Beethoven_010.png" alt="Loss Difference">
-        <p><b>Figure 1-1 Loss Difference.</b> </p>
+        <p><b>Loss Difference.</b> </p>
       </div>
 
       <div class="demo-group">
@@ -241,12 +262,12 @@
         <audio controls>
           <source src="assets/audio/ori_Chopin_073.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_Chopin_073.wav" type="audio/mpeg">
         </audio>
         <img src="assets/img/loss_diff_Chopin_073.png" alt="Loss Difference">
-        <p><b>Figure 1-2 Loss Difference.</b> </p>
+        <p><b>Loss Difference.</b> </p>
       </div>
 
       <div class="demo-group">
@@ -255,12 +276,12 @@
         <audio controls>
           <source src="assets/audio/ori_Schubert_062.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_Schubert_062.wav" type="audio/mpeg">
         </audio>
         <img src="assets/img/loss_diff_Schubert_062.png" alt="Loss Difference">
-        <p><b>Figure 1-3 Loss Difference.</b> </p>
+        <p><b>Loss Difference.</b> </p>
       </div>
     </div>
 
@@ -271,12 +292,12 @@
         <audio controls>
           <source src="assets/audio/ori_sample_004.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_sample_004.wav" type="audio/mpeg">
         </audio>
         <img src="assets/img/loss_diff_unconditional_topk250_samples_sample_004.png" alt="Loss Difference">
-        <p><b>Figure 1-4 Loss Difference.</b> </p>
+        <p><b>Loss Difference.</b> </p>
       </div>
 
       <div class="demo-group">
@@ -285,12 +306,12 @@
         <audio controls>
           <source src="assets/audio/ori_sample_005.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_sample_005.wav" type="audio/mpeg"> 
         </audio>
         <img src="assets/img/loss_diff_unconditional_topk250_samples_sample_005.png" alt="Loss Difference">
-        <p><b>Figure 1-5 Loss Difference.</b> </p>
+        <p><b>Loss Difference.</b> </p>
       </div>
 
       <div class="demo-group">
@@ -299,12 +320,12 @@
         <audio controls>
           <source src="assets/audio/ori_sample_006.wav" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_sample_006.wav" type="audio/mpeg"> 
         </audio>
         <img src="assets/img/loss_diff_unconditional_topk250_samples_sample_006.png" alt="Loss Difference">
-        <p><b>Figure 1-6 Loss Difference.</b> </p>
+        <p><b>Loss Difference.</b> </p>
       </div>
     </div>
 
@@ -315,12 +336,12 @@
         <audio controls>
           <source src="assets/audio/ori_spreading-your-wings.mp3" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_spreading-your-wings.wav" type="audio/mpeg">
         </audio>
         <img src="assets/img/loss_diff_spreading-your-wings.png" alt="Loss Difference">
-        <p><b>Figure 1-7 Loss Difference.</b> </p>
+        <p><b>Loss Difference.</b> </p>
       </div>
 
       <div class="demo-group">
@@ -329,12 +350,12 @@
         <audio controls>
           <source src="assets/audio/ori_the-drive-for-resolution.mp3" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_the-drive-for-resolution.wav" type="audio/mpeg">
         </audio>
         <img src="assets/img/loss_diff_the-drive-for-resolution.png" alt="Loss Difference">
-        <p><b>Figure 1-8 Loss Difference.</b> </p>
+        <p><b>Loss Difference.</b> </p>
       </div>
 
       <div class="demo-group">
@@ -343,19 +364,19 @@
         <audio controls>
           <source src="assets/audio/ori_wistful-longing.mp3" type="audio/mpeg">
         </audio>
-        <p>Noise injected</p>
+        <p>Noise Injected at 5 Seconds for 100 Tokens (2 Sec) Long</p>
         <audio controls>
           <source src="assets/audio/whiteNoise_wistful-longing.wav" type="audio/mpeg">
         </audio>
         <img src="assets/img/loss_diff_wistful-longing.png" alt="Loss Difference">
-        <p><b>Figure 1-9 Loss Difference.</b> </p>
+        <p><b>Figure 1. Loss Difference.</b> </p>
       </div>
     </div>
     </section>
     
-    <section id="supplement">
-    <h2>Suppement Experiment - Loss under Different Noise Injection</h2>
-    <p>Across injection at blue/pink/brown noise types, Cross Entropy Loss remains similar behavior.</p>
+    <section id="different-noise">
+    <h2>Loss under Different Noise Injection</h2>
+    <p>Across blue/pink/brown noise types, CE loss remains steady.</p>
     <div class="figure-block">
       <img src="assets/img/OOD_all_noise.png" alt="Loss under Different Noise Injection - OOD Datasets">
       <p><b>Figure 2-1. Loss under Different Noise Injection - OOD Datasets.</b> </p>
@@ -372,8 +393,19 @@
     </div>
     </section>
 
-    <section id="additional">
-    <h2>Additional Tests</h2>
+    <section id="loss-dynamics">
+    <h2>Loss Curve Dynamics</h2>
+    <p> Three phases: Peak → Assimilation → Recovery.</p>
+
+    <div class="figure-block">
+      <img src="assets/img/figure3.png" alt="Loss Curve Dynamics" class="small-figure">
+      <p><b>Figure 3. Loss Curve Dynamics.</b> 
+      </p>
+    </div>
+    </section>
+
+    <section id="supplement">
+    <h2>Supplement Experiments 1</h2>
     <p>Additional tests (rhythm deletion, velocity, structure) further show absolute loss is unreliable.</p>
 
   <div class="demo-container">
@@ -388,7 +420,7 @@
         <source src="assets/audio/Beethoven_090_rhythm1_4_step1_r40.wav" type="audio/mpeg">
       </audio>
       <img src="assets/img/supplement1_rhythm.png" alt="Rhythm Deletion">
-      <p><b>Figure 3-1. Rhythm Deletion.</b></p>
+      <p><b>Figure 4-1. Rhythm Deletion.</b></p>
     </div>
 
     <div class="demo-group">
@@ -402,7 +434,7 @@
         <source src="assets/audio/Beethoven_090_velocity1_1_step1_nt80.wav" type="audio/mpeg">
       </audio>
       <img src="assets/img/supplement1_velocity.png" alt="Dynamic Change">
-      <p><b>Figure 3-2. Note Velocity Change.</b></p>
+      <p><b>Figure 4-2. Note Velocity Change.</b></p>
     </div>
 
     <div class="demo-group">
@@ -416,7 +448,7 @@
         <source src="assets/audio/Beethoven_090_tempo1_1_step1_nt80.wav" type="audio/mpeg">
       </audio>
       <img src="assets/img/supplement1_structure.png" alt="Structure Change">
-      <p><b>Figure 3-3. Structure Change.</b></p>
+      <p><b>Figure 4-3. Structure Change.</b></p>
     </div>
   </div>
     </section>
